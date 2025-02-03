@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="estilos/style.css">
+
+  <title>Frontend Mentor | Product list with cart</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Desserts</h1>
+  <main>
+    
+    <section class="main-container">
+      <div class="product-item">
+        <img src="assets/images/image-waffle-desktop.jpg" alt=""> </img>
+        <label for="category">Waffle</label>
+        <h2>Waffle with Berries</h2>
+        <p class="price">6.50</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-creme-brulee-desktop.jpg" alt=""></img>
+        <label for="category">Crème Brûlée</label>
+        <h2>Vanilla Bean Crème Brûlée</h2>
+        <p class="price">7.00</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-macaron-desktop.jpg" alt=""> </img>
+        <label for="category">Macaron</label>
+        <h2>Macaron Mix of Five</h2>
+        <p class="price">8.00</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-tiramisu-desktop.jpg" alt=""></img>
+        <label for="category">Tiramisu</label>
+        <h2>Classic Tiramisu</h2>
+        <p class="price">5.50</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-baklava-desktop.jpg" alt=""></img>
+        <label for="category">Baklava</label>
+        <h2>Pistachio Baklava</h2>
+        <p class="price">4.00</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-meringue-desktop.jpg" alt=""></img>
+        <label for="category">Pie</label>
+        <h2>Lemon Meringue Pie</h2>
+        <p class="price">5.00</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-cake-desktop.jpg" alt=""></img>
+        <label for="category">Cake</label>
+        <h2>Red Velvet Cake</h2>
+        <p class="price">4.50</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-brownie-desktop.jpg" alt=""></img>
+        <label for="category">Brownie</label>
+        <h2>Salted Caramel Brownie</h2>
+        <p class="price">4.50</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="assets/images/image-panna-cotta-desktop.jpg" alt=""></img>
+        <label for="category">Panna Cotta</label>
+        <h2>Vanilla Panna Cotta</h2>
+        <p class="price">6.50</p>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+      </div>
+    </section>
+
+
+    <section class="carrinho" id="carrinho">
+      <h2>Your Cart (<span id="cart-counter">0</span>)</h2>
+      <p id="empty-cart">Your added items will appear here</p>
+    </section>
+
+
+  </main>
+  <script>
+    let itens = [...document.querySelectorAll('.product-item')]
+    let cart = document.getElementById('carrinho')
+    let itenInCart = document.getElementById('cart-counter')
+    let counter = 0;
+    let emptyCart = document.getElementById('empty-cart')
+    itens.forEach((element) => element.addEventListener('click', () => {
+      let createDivItem = document.createElement('div')
+      let divContent = document.createTextNode(element.innerText)
+      createDivItem.classList.add('in-cart-product')
+      createDivItem.appendChild(divContent)
+      cart.appendChild(createDivItem)
+      counter++
+      itenInCart.innerHTML = counter
+      emptyCart.style.display = 'none';
+    }))
+  </script>
+  <br>
+  <br>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">João Longuinho</a>.
+  </div>
+  
+</body>
+
+</html>
