@@ -98,5 +98,18 @@ main{
 .in-cart-product{
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, 0.185);
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.in-cart-product img{
+    border: 1px solid hsl(12, 20%, 44%);
+    height: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.in-cart-product img:hover{
+    cursor: pointer;
 }

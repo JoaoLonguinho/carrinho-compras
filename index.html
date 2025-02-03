@@ -27,7 +27,7 @@
 <body>
   <h1>Desserts</h1>
   <main>
-    
+
     <section class="main-container">
       <div class="product-item">
         <img src="assets/images/image-waffle-desktop.jpg" alt=""> </img>
@@ -108,16 +108,27 @@
     let itenInCart = document.getElementById('cart-counter')
     let counter = 0;
     let emptyCart = document.getElementById('empty-cart')
-    itens.forEach((element) => element.addEventListener('click', () => {
-      let createDivItem = document.createElement('div')
-      let divContent = document.createTextNode(element.innerText)
-      createDivItem.classList.add('in-cart-product')
-      createDivItem.appendChild(divContent)
-      cart.appendChild(createDivItem)
-      counter++
-      itenInCart.innerHTML = counter
-      emptyCart.style.display = 'none';
-    }))
+
+    itens.forEach((element) => {
+      let btnAdd = element.querySelector('.btn-add');
+      btnAdd.addEventListener('click', () => {
+        let productName = element.querySelector('h2').innerText;
+        let productPrice = element.querySelector('.price').innerText;
+        let createDivItem = document.createElement('div');
+        createDivItem.classList.add('in-cart-product');
+        createDivItem.innerText = `${productName} - R$ ${productPrice}`;
+        let removeFromCart = document.createElement('img')
+        removeFromCart.src = 'assets/images/icon-remove-item.svg'
+        removeFromCart.classList.add('remove-from-cart')
+        createDivItem.appendChild(removeFromCart)
+
+        cart.appendChild(createDivItem)
+        counter++;
+        itenInCart.innerHTML = counter;
+        emptyCart.style.display = 'none';
+      })
+    })
+
   </script>
   <br>
   <br>
@@ -125,7 +136,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
     Coded by <a href="#">João Longuinho</a>.
   </div>
-  
+
 </body>
 
 </html>
