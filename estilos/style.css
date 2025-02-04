@@ -91,6 +91,9 @@ main{
     padding: 25px;
     box-sizing: border-box;
     border-radius: 15px;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+
 }
 .carrinho h2{
     color:hsl(14, 86%, 42%);
