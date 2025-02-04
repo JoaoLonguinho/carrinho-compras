@@ -105,10 +105,10 @@
   <script>
     let itens = [...document.querySelectorAll('.product-item')]
     let cart = document.getElementById('carrinho')
-    let itenInCart = document.getElementById('cart-counter')
     let counter = 0;
     let emptyCart = document.getElementById('empty-cart')
-
+    let itenInCart = []
+    
     itens.forEach((element) => {
       let btnAdd = element.querySelector('.btn-add');
       btnAdd.addEventListener('click', () => {
@@ -116,18 +116,25 @@
         let productPrice = element.querySelector('.price').innerText;
         let createDivItem = document.createElement('div');
         createDivItem.classList.add('in-cart-product');
-        createDivItem.innerText = `${productName} - R$ ${productPrice}`;
+        itenInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
+        cart.appendChild(createDivItem)
+        
+        
         let removeFromCart = document.createElement('img')
         removeFromCart.src = 'assets/images/icon-remove-item.svg'
         removeFromCart.classList.add('remove-from-cart')
         createDivItem.appendChild(removeFromCart)
-
-        cart.appendChild(createDivItem)
+        removeFromCart.addEventListener('click', () => {
+          itenInCart.pop()
+          createDivItem.remove()
+        })
+        
         counter++;
         itenInCart.innerHTML = counter;
         emptyCart.style.display = 'none';
       })
     })
+
 
   </script>
   <br>
