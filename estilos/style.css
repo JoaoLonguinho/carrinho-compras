@@ -1,22 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     margin: 100px;
     font-family: "Red Hat Text", serif;
     background-color: hsl(13, 31%, 94%);
 }
-body h1{
+
+body h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
 }
-.main-container{
+
+.main-container {
     width: 50%;
     display: flex;
     flex-flow: row wrap;
@@ -24,10 +29,12 @@ main{
     gap: 1.5vw;
     box-sizing: border-box;
 }
-.carrinho{
+
+.carrinho {
     width: 20%;
 }
-.product-item{
+
+.product-item {
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -35,32 +42,40 @@ main{
     width: 30%;
     position: relative;
 }
-.product-item img{
+
+.product-item img {
     width: 100%;
     border-radius: 15px;
 }
-.product-item h2, .product-item label{
-    
+
+.product-item h2,
+.product-item label {
+
     font-size: 16px;
 }
-.product-item h2{
+
+.product-item h2 {
     color: hsl(14, 65%, 9%);
     font-weight: 600;
 }
-.product-item label{
+
+.product-item label {
     color: hsl(12, 20%, 44%);
     font-weight: 400;
     opacity: 0.9;
     margin-top: 40px;
 }
-.price{
+
+.price {
     color: hsl(14, 86%, 42%);
     font-weight: 600;
 }
-.price::before{
+
+.price::before {
     content: 'R$ ';
 }
-.btn-add{
+
+.btn-add {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -76,16 +91,19 @@ main{
     gap: 5px;
     border-radius: 50px;
 }
-.btn-add img{
+
+.btn-add img {
     width: 15px;
 }
-.btn-add:hover{
+
+.btn-add:hover {
     cursor: pointer;
     background-color: hsl(14, 65%, 9%);
     color: white;
     transition: 0.2s;
 }
-.carrinho{
+
+.carrinho {
     background-color: white;
     height: 300px;
     padding: 25px;
@@ -93,12 +111,15 @@ main{
     border-radius: 15px;
     display: flex;
     flex-flow: column-reverse nowrap;
+    overflow-y: auto;
 
 }
-.carrinho h2{
-    color:hsl(14, 86%, 42%);
+
+.carrinho h2 {
+    color: hsl(14, 86%, 42%);
 }
-.in-cart-product{
+
+.in-cart-product {
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, 0.185);
     flex-flow: row nowrap;
@@ -106,27 +127,31 @@ main{
     justify-content: space-between;
     padding: 10px 0px;
 }
-.in-cart-product img{
+
+.in-cart-product img {
     border: 1px solid hsl(12, 20%, 44%);
     height: 20px;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 50%;
 }
-.in-cart-product img:hover{
+
+.in-cart-product img:hover {
     cursor: pointer;
 }
+
 /* .selected-item{
     border: 2px solid hsl(14, 86%, 42%);
     box-sizing: border-box;
 } */
-.selected-btn{
+.selected-btn {
     cursor: pointer;
     background-color: hsl(14, 65%, 9%);
     color: white;
     transition: 0.2s;
 }
-#btnActive{
+
+#btnActive {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -143,9 +168,11 @@ main{
     border-radius: 50px;
     display: none;
 }
-.hideAddCartBtn{
+
+.hideAddCartBtn {
     display: none;
 }
-.showBtnItemCounter{
+
+.showBtnItemCounter {
     display: block;
 }
