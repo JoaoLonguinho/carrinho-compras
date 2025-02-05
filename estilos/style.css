@@ -116,3 +116,36 @@ main{
 .in-cart-product img:hover{
     cursor: pointer;
 }
+.selected-item{
+    border: 2px solid hsl(14, 86%, 42%);
+    box-sizing: border-box;
+}
+.selected-btn{
+    cursor: pointer;
+    background-color: hsl(14, 65%, 9%);
+    color: white;
+    transition: 0.2s;
+}
+#btnActive{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 35px;
+    border: 1px solid hsl(14, 65%, 9%);
+    color: hsl(14, 65%, 9%);
+    font-family: "Red Hat Text", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    display: none;
+}
+.hideAddCartBtn{
+    display: none;
+}
+.showBtnItemCounter{
+    display: block;
+}

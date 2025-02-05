@@ -34,63 +34,79 @@
         <label for="category">Waffle</label>
         <h2>Waffle with Berries</h2>
         <p class="price">6.50</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-creme-brulee-desktop.jpg" alt=""></img>
         <label for="category">Crème Brûlée</label>
         <h2>Vanilla Bean Crème Brûlée</h2>
         <p class="price">7.00</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-macaron-desktop.jpg" alt=""> </img>
         <label for="category">Macaron</label>
         <h2>Macaron Mix of Five</h2>
         <p class="price">8.00</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-tiramisu-desktop.jpg" alt=""></img>
         <label for="category">Tiramisu</label>
         <h2>Classic Tiramisu</h2>
         <p class="price">5.50</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-baklava-desktop.jpg" alt=""></img>
         <label for="category">Baklava</label>
         <h2>Pistachio Baklava</h2>
         <p class="price">4.00</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-meringue-desktop.jpg" alt=""></img>
         <label for="category">Pie</label>
         <h2>Lemon Meringue Pie</h2>
         <p class="price">5.00</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-cake-desktop.jpg" alt=""></img>
         <label for="category">Cake</label>
         <h2>Red Velvet Cake</h2>
         <p class="price">4.50</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-brownie-desktop.jpg" alt=""></img>
         <label for="category">Brownie</label>
         <h2>Salted Caramel Brownie</h2>
         <p class="price">4.50</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span></button>
       </div>
       <div class="product-item">
         <img src="assets/images/image-panna-cotta-desktop.jpg" alt=""></img>
         <label for="category">Panna Cotta</label>
         <h2>Vanilla Panna Cotta</h2>
         <p class="price">6.50</p>
-        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
+        <button class="btn-add"> <img src="/assets/images/icon-add-to-cart.svg" alt=""> <span class="add-switch">Add to
+            Cart</span> </button>
+      </div>
+      <div>
+        <button id="btnActive">
+          <img src="assets/images/icon-decrement-quantity.svg" alt="">
+          <span class="item-quantity">1</span>
+          <img src="assets/images/icon-increment-quantity.svg" alt="">
+        </button>
       </div>
     </section>
 
@@ -112,14 +128,17 @@
     let cartValue = document.getElementById('cart-total-value')
     let totalValue = 0;
     let cartCounter = document.getElementById('cart-counter')
+    let btnActive = document.getElementById('btnActive')
 
     itens.forEach((element) => {
       let btnAdd = element.querySelector('.btn-add');
       btnAdd.addEventListener('click', () => {
+        /* Adiciona o item ao carrinho */
         let productName = element.querySelector('h2').innerText;
         let productPrice = element.querySelector('.price').innerText;
+        let productImage = element.querySelector('img');
         let createDivItem = document.createElement('div');
-        createDivItem.classList.add('in-cart-product');
+        
         itenInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
         cart.appendChild(createDivItem)
 
@@ -127,9 +146,18 @@
           const price = parseFloat(item.split(" - R$ ")[1]);
           return sum + price;
         }, 0)
-
+        /* Troca o conteúdo do botão */
+        let createImages = document.createElement('img')
+        createDivItem.classList.add('in-cart-product');
+        createImages.src = 'assets/images/icon-decrement-quantity.svg'
+        btnAdd.appendChild(createImages)
+        console.log(btnAdd.appendChild(createImages))
+        btnAdd.innerHTML = 1;
+        /* Adiciona o estilo na imagem do item selecionado */
+        productImage.classList.add('selected-item')
+        /* soma o valor dos itens no carrinho */
+        
         cartValue.innerHTML = total;
-
 
         let removeFromCart = document.createElement('img')
         removeFromCart.src = 'assets/images/icon-remove-item.svg'
@@ -148,6 +176,7 @@
       })
     })
 
+    
 
   </script>
   <br>
