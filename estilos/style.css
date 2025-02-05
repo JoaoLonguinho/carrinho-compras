@@ -116,10 +116,10 @@ main{
 .in-cart-product img:hover{
     cursor: pointer;
 }
-.selected-item{
+/* .selected-item{
     border: 2px solid hsl(14, 86%, 42%);
     box-sizing: border-box;
-}
+} */
 .selected-btn{
     cursor: pointer;
     background-color: hsl(14, 65%, 9%);
