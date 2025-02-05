@@ -124,7 +124,7 @@
     let cart = document.getElementById('carrinho')
     let counter = 0;
     let emptyCart = document.getElementById('empty-cart')
-    let itenInCart = []
+    let itemsInCart = []
     let cartValue = document.getElementById('cart-total-value')
     let totalValue = 0;
     let cartCounter = document.getElementById('cart-counter')
@@ -139,11 +139,11 @@
         let productImage = element.querySelector('img');
         let createDivItem = document.createElement('div');
 
-        itenInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
+        itemsInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
         cart.appendChild(createDivItem)
         createDivItem.classList.add('in-cart-product');
 
-        const total = itenInCart.reduce((sum, item) => {
+        const total = itemsInCart.reduce((sum, item) => {
           const price = parseFloat(item.split(" - R$ ")[1]);
           return sum + price;
         }, 0)
@@ -169,9 +169,9 @@
           totalValue -= priceToRemove; // Subtrai o valor do item removido
           cartValue.innerHTML = totalValue.toFixed(2); // Atualiza o total formatado
 
-          let index = itenInCart.indexOf(createDivItem.innerText);
+          let index = itemsInCart.indexOf(createDivItem.innerText);
           if (index !== -1) {
-            itenInCart.splice(index, 1);
+            itemsInCart.splice(index, 1);
           }
 
           createDivItem.remove();
