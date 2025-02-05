@@ -138,7 +138,7 @@
         let productPrice = element.querySelector('.price').innerText;
         let productImage = element.querySelector('img');
         let createDivItem = document.createElement('div');
-        
+
         itenInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
         cart.appendChild(createDivItem)
 
@@ -151,24 +151,37 @@
         createDivItem.classList.add('in-cart-product');
         createImages.src = 'assets/images/icon-decrement-quantity.svg'
         btnAdd.appendChild(createImages)
-        console.log(btnAdd.appendChild(createImages))
         btnAdd.innerHTML = 1;
         /* Adiciona o estilo na imagem do item selecionado */
         productImage.classList.add('selected-item')
         /* soma o valor dos itens no carrinho */
         
+        totalValue = total;
         cartValue.innerHTML = total;
 
         let removeFromCart = document.createElement('img')
         removeFromCart.src = 'assets/images/icon-remove-item.svg'
         removeFromCart.classList.add('remove-from-cart')
         createDivItem.appendChild(removeFromCart)
+
         removeFromCart.addEventListener('click', () => {
-          itenInCart.pop()
-          createDivItem.remove()
-          counter--
+          let priceToRemove = parseFloat(createDivItem.innerText.split(" - R$ ")[1]);
+          totalValue -= priceToRemove; // Subtrai o valor do item removido
+          cartValue.innerHTML = totalValue.toFixed(2); // Atualiza o total formatado
+
+          let index = itenInCart.indexOf(createDivItem.innerText);
+          if (index !== -1) {
+            itenInCart.splice(index, 1);
+          }
+
+          createDivItem.remove();
+          counter--;
           cartCounter.innerHTML = counter;
-        })
+
+          if (counter === 0) {
+            emptyCart.style.display = 'block';
+          }
+        });
 
         counter++;
         cartCounter.innerHTML = counter;
@@ -176,7 +189,7 @@
       })
     })
 
-    
+
 
   </script>
   <br>
