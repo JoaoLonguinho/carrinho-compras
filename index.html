@@ -141,17 +141,17 @@
 
         itenInCart.push(createDivItem.innerText = `${productName} - R$ ${productPrice}`)
         cart.appendChild(createDivItem)
+        createDivItem.classList.add('in-cart-product');
 
         const total = itenInCart.reduce((sum, item) => {
           const price = parseFloat(item.split(" - R$ ")[1]);
           return sum + price;
         }, 0)
         /* Troca o conteúdo do botão */
-        let createImages = document.createElement('img')
-        createDivItem.classList.add('in-cart-product');
-        createImages.src = 'assets/images/icon-decrement-quantity.svg'
-        btnAdd.appendChild(createImages)
-        btnAdd.innerHTML = 1;
+        // let createImages = document.createElement('img')
+        // createImages.src = 'assets/images/icon-decrement-quantity.svg'
+        // btnAdd.appendChild(createImages)
+        
         /* Adiciona o estilo na imagem do item selecionado */
         productImage.classList.add('selected-item')
         /* soma o valor dos itens no carrinho */
